@@ -10,12 +10,15 @@ export const data: IMatch[] = [
       name: 'Chelsea',
       logo: `${Chelsea}`,
       score: 0,
+      coefficient: 1.23,
     },
     guestTeam: {
       name: 'Chelsea',
       logo: `${Chelsea}`,
       score: 0,
+      coefficient: 1.23,
     },
+    drawCoefficient: 1.23,
   },
   {
     id: 1,
@@ -25,12 +28,15 @@ export const data: IMatch[] = [
       name: 'Chelsea',
       logo: `${Chelsea}`,
       score: 0,
+      coefficient: 1.23,
     },
     guestTeam: {
       name: 'Chelsea',
       logo: `${Chelsea}`,
       score: 0,
+      coefficient: 1.23,
     },
+    drawCoefficient: 1.23,
   },
   {
     id: 1,
@@ -40,11 +46,14 @@ export const data: IMatch[] = [
       name: 'Chelsea',
       logo: `${Chelsea}`,
       score: 0,
+      coefficient: 1.23,
     },
     guestTeam: {
       name: 'Chelsea',
       logo: `${Chelsea}`,
       score: 0,
+      coefficient: 1.23,
     },
+    drawCoefficient: 1.23,
   },
 ];

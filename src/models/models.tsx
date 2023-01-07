@@ -6,10 +6,13 @@ export interface IMatch {
     name: string;
     logo: string;
     score: number;
+    coefficient: number;
   };
   guestTeam: {
     name: string;
     logo: string;
     score: number;
+    coefficient: number;
   };
+  drawCoefficient: number;
 }

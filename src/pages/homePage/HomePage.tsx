@@ -15,6 +15,7 @@ import {
 } from './HomePage.styled';
 
 import { data } from '../../data/mockData';
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   return (
@@ -23,7 +24,7 @@ const HomePage = () => {
         {data.map((match) => {
           const { id, playDate, playTime, homeTeam, guestTeam } = match;
           return (
-            <Match key={id}>
+            <Match key={id} as={Link} to={`match/${id}`}>
               <AboutMatch>
                 <TimeItem>{playTime}</TimeItem>
                 <DateItem>{playDate}</DateItem>

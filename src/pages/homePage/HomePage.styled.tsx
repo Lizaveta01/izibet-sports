@@ -19,6 +19,13 @@ export const Match = styled.div`
   border-radius: 8px;
   width: 100%;
   padding: 0px 40px;
+  cursor: pointer;
+  color: ${Colors.WHITE};
+  :hover {
+    transform: scale(1.02);
+    transition: all 0.5s ease-in-out;
+    box-shadow: 4px 5px 5px 1px ${Colors.PINK};
+  }
   @media screen and (max-width: ${Size.laptop}) {
     gap: 16px;
     padding: 0px 16px;
