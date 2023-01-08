@@ -1,7 +1,7 @@
 import Chelsea from '../assets/svg/chelsea.svg';
 import { IMatch } from '../models/models';
 
-export const data: IMatch[] = [
+const mockDB: IMatch[] = [
   {
     id: 1,
     playDate: '12.01.2023',
@@ -57,3 +57,10 @@ export const data: IMatch[] = [
     drawCoefficient: 1.23,
   },
 ];
+
+const mockAPI = {
+  getMatches: () => Promise.resolve(mockDB),
+  getMatchById: (id: number) => Promise.resolve(mockDB.find((v) => v.id === id)),
+};
+
+export const currentAPI = mockAPI;
