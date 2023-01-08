@@ -11,7 +11,6 @@ import {
   DateItem,
   Match,
   Name,
-  Score,
   TeamFirst,
   TeamSecond,
   TimeItem,
@@ -22,45 +21,46 @@ import {
 const MatchPage = () => {
   const { matchID } = useParams();
   const navigate = useNavigate();
-  const [match, setMatch] = useState<IMatch>();
-  const { id, playDate, playTime, homeTeam, guestTeam } = match!;
+  // const [match, setMatch] = useState<IMatch>();
+  const match = data[0];
 
   useEffect(() => {
-    getMatch();
+    // getData(data);
+    // const matchData = data.filter((match) => match.id === +matchID!);
+    // eslint-disable-next-line no-console
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const getMatch = () => {
-    const match = data.filter((match) => match.id === +matchID!);
-    setMatch(match[0]);
-  };
-
+  // eslint-disable-next-line no-console
   const handleClick = () => {
     navigate('/');
   };
 
+  // const getData = async (data: IMatch[]) => {
+  //   const res = await data.filter((match: IMatch) => match.id === +matchID!);
+  //   setMatch(res[0]);
+  //   // eslint-disable-next-line no-console
+  //   console.log('fif', match);
+  // };
+
   return (
     <Wrapper>
-      <Title> Сделай ставку на матч</Title>
+      <Title>
+        <h1>Will make a bet on match!</h1>
+      </Title>
       <Match>
-        <AboutMatch>
-          <TimeItem>{playTime}</TimeItem>
-          <DateItem>{playDate}</DateItem>
-        </AboutMatch>
-
         <AboutTeams>
           <TeamFirst>
-            <Name>{homeTeam.name}</Name>
-            <HandySvg src={homeTeam.logo} width="40" height="40" />
+            <Name>{match!.homeTeam.name}</Name>
+            <HandySvg src={match!.homeTeam.logo} />
           </TeamFirst>
-          <Score>
-            <p>
-              {homeTeam.score}:{guestTeam.score}
-            </p>
-          </Score>
+          <AboutMatch>
+            <TimeItem>{match!.playTime}</TimeItem>
+            <DateItem>{match!.playDate}</DateItem>
+          </AboutMatch>
           <TeamSecond>
-            <Name>{guestTeam.name}</Name>
-            <HandySvg src={guestTeam.logo} width="40" height="40" />
+            <Name>{match!.guestTeam.name}</Name>
+            <HandySvg src={match!.guestTeam.logo} />
           </TeamSecond>
         </AboutTeams>
       </Match>

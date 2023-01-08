@@ -1,23 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { IMatch } from '../../models/models';
-import { ButtonSubmit, ChooseCoefficient, FormWrapper, RadioButton } from './form.styled';
+import {
+  ButtonSubmit,
+  ChooseCoefficient,
+  FormWrapper,
+  Input,
+  Paragraph,
+  RadioButton,
+} from './form.styled';
 
 type Props = {
-  match: IMatch;
+  match: IMatch | undefined;
 };
 
 const Form = ({ match }: Props) => {
   const navigate = useNavigate();
-  const { homeTeam, guestTeam, drawCoefficient } = match;
-  const {
-    register,
-    formState: { errors, isValid },
-    handleSubmit,
-  } = useForm({
-    mode: 'onBlur',
-  });
+  const { homeTeam, guestTeam, drawCoefficient } = match!;
 
   const onSubmit = () => {
     navigate('/');
@@ -25,33 +25,52 @@ const Form = ({ match }: Props) => {
 
   const coefficientData = [
     {
+      id: 'radio-1',
       title: 'Home',
+      team: homeTeam.name,
       coefficient: homeTeam.coefficient,
     },
     {
+      id: 'radio-2',
       title: 'Draw',
+      team: '',
       coefficient: drawCoefficient,
     },
     {
+      id: 'radio-3',
       title: 'Guest',
+      team: guestTeam.name,
       coefficient: guestTeam.coefficient,
     },
   ];
+  const [isBet, setIsBet] = useState(false);
+
+  const hadlerOption = (team: string) => {
+    setIsBet(true);
+  };
 
   return (
-    <FormWrapper onSubmit={handleSubmit(onSubmit)}>
+    <FormWrapper>
       <ChooseCoefficient>
         {coefficientData.map((item, index) => {
           return (
             <RadioButton key={index}>
-              <input id="radio-3" type="radio" name="radio" value="3" />
-              <label htmlFor="radio-3">{item.title}</label>
+              <Input
+                id={item.id}
+                type="radio"
+                name="radio"
+                value="3"
+                onClick={() => hadlerOption(item.team)}
+              />
+              <Paragraph>
+                {item.title} : {item.coefficient}
+              </Paragraph>
             </RadioButton>
           );
         })}
       </ChooseCoefficient>
 
-      <ButtonSubmit type="submit" disabled={!isValid}>
+      <ButtonSubmit type="submit" disabled={!isBet} onClick={onSubmit}>
         Make a bet
       </ButtonSubmit>
     </FormWrapper>

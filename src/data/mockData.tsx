@@ -21,7 +21,7 @@ export const data: IMatch[] = [
     drawCoefficient: 1.23,
   },
   {
-    id: 1,
+    id: 2,
     playDate: '12.01.2023',
     playTime: '18:00',
     homeTeam: {
@@ -39,7 +39,7 @@ export const data: IMatch[] = [
     drawCoefficient: 1.23,
   },
   {
-    id: 1,
+    id: 3,
     playDate: '12.01.2023',
     playTime: '18:00',
     homeTeam: {

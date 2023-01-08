@@ -4,6 +4,7 @@ export enum Colors {
   BLACK = '#171c2c',
   GRAY = '#2b2f3e',
   PINK = '#cf0b77',
+  DISABLED = '#535353',
 }
 export enum Size {
   mobileS = '320px',

@@ -21,10 +21,11 @@ export const Match = styled.div`
   padding: 0px 40px;
   cursor: pointer;
   color: ${Colors.WHITE};
-  :hover {
+  border: 2px solid ${Colors.GRAY};
+  transition: all 0.5s ease-in-out;
+  &:hover {
     transform: scale(1.02);
-    transition: all 0.5s ease-in-out;
-    box-shadow: 4px 5px 5px 1px ${Colors.PINK};
+    border: 2px solid ${Colors.PINK};
   }
   @media screen and (max-width: ${Size.laptop}) {
     gap: 16px;
