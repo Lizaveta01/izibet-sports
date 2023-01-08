@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { IMatch } from '../../models/models';
+import { useMyContext } from '../../context/context';
+import { IBetData, IMatch } from '../../models/models';
 import {
   ButtonSubmit,
   ChooseCoefficient,
@@ -16,42 +17,47 @@ type Props = {
 
 const Form = ({ match }: Props) => {
   const navigate = useNavigate();
-  const { homeTeam, guestTeam, drawCoefficient } = match!;
+  const [isBet, setIsBet] = useState(false);
+  const { homeTeam, guestTeam, draw } = match!;
+  const { setBet } = useMyContext();
 
   const onSubmit = () => {
     navigate('/');
   };
 
-  const coefficientData = [
+  const coefficientData: IBetData[] = [
     {
       id: 'radio-1',
-      title: 'Home',
-      team: homeTeam.name,
-      coefficient: homeTeam.coefficient,
+      team: homeTeam,
     },
     {
       id: 'radio-2',
-      title: 'Draw',
-      team: '',
-      coefficient: drawCoefficient,
+      team: draw,
     },
     {
       id: 'radio-3',
-      title: 'Guest',
-      team: guestTeam.name,
-      coefficient: guestTeam.coefficient,
+      team: guestTeam,
     },
   ];
-  const [isBet, setIsBet] = useState(false);
 
-  const hadlerOption = (team: string) => {
+  const hadlerOption = (winTeam: IBetData) => {
     setIsBet(true);
+    const { team } = winTeam;
+    const win: string = team.name ? `${team.name} win` : team.title;
+
+    setBet({
+      home: homeTeam.name,
+      guest: guestTeam.name,
+      win: win,
+      coefficient: team.coefficient,
+    });
   };
 
   return (
     <FormWrapper>
       <ChooseCoefficient>
         {coefficientData.map((item, index) => {
+          const { team } = item;
           return (
             <RadioButton key={index}>
               <Input
@@ -59,10 +65,10 @@ const Form = ({ match }: Props) => {
                 type="radio"
                 name="radio"
                 value="3"
-                onClick={() => hadlerOption(item.team)}
+                onClick={() => hadlerOption(item)}
               />
               <Paragraph>
-                {item.title} : {item.coefficient}
+                {team.title} : {team.coefficient}
               </Paragraph>
             </RadioButton>
           );

@@ -1,5 +1,12 @@
-import { HandySvg } from 'handy-svg';
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { HandySvg } from 'handy-svg';
+
+import { currentAPI } from '../../data/mockData';
+import { IMatch } from '../../models/models';
+import { useMyContext } from '../../context/context';
+
 import {
   DateItem,
   Match,
@@ -12,19 +19,23 @@ import {
   Wrapper,
   AboutTeams,
   AboutMatch,
+  ModalWindow,
 } from './HomePage.styled';
-
-import { currentAPI } from '../../data/mockData';
-import { Link } from 'react-router-dom';
 import Spinner from '../../components/spinner/Spinner';
-import { IMatch } from '../../models/models';
+import { Word } from '../../models/constants';
 
 const HomePage = () => {
   const [matches, setMatches] = useState<IMatch[]>();
   const [isLoading, setIsLoading] = useState(true);
+  const [isOpenModalWindow, setIsOpenModalWindow] = useState(false);
+  const { bet, setBet } = useMyContext();
 
   useEffect(() => {
     getMatches();
+    if (bet) {
+      setIsOpenModalWindow(true);
+      closeModalWindow();
+    }
   }, []);
 
   const getMatches = async () => {
@@ -33,8 +44,24 @@ const HomePage = () => {
     setIsLoading(false);
   };
 
+  const closeModalWindow = () => {
+    setTimeout(() => {
+      setIsOpenModalWindow(false);
+      setBet(null);
+    }, 4000);
+  };
+
   return (
     <Wrapper>
+      {bet && (
+        <ModalWindow className={isOpenModalWindow ? Word.ACTIVE : ''}>
+          <p>
+            Thank you! Your bet in the match {bet.home}: {bet.guest} on {bet.win} with coefficient{' '}
+            {bet.coefficient} accepted
+          </p>
+        </ModalWindow>
+      )}
+
       {isLoading ? (
         <Spinner />
       ) : (

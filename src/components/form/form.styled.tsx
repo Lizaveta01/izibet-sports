@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Colors, Size } from '../../styles/constansts';
+import { Colors } from '../../styles/constansts';
 
 export const FormWrapper = styled.div`
   display: flex;

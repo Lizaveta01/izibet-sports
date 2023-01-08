@@ -7,7 +7,6 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding-top: 100px;
 `;
 
 export const Match = styled.div`
@@ -30,7 +29,6 @@ export const Match = styled.div`
   @media screen and (max-width: ${Size.laptop}) {
     gap: 16px;
     padding: 0px 16px;
-    /* height: 80px; */
   }
   @media screen and (max-width: ${Size.tablet}) {
     border: none;
@@ -46,6 +44,7 @@ export const MatchingList = styled.div`
   width: 100%;
   margin-bottom: 50px;
   gap: 20px;
+  margin-top: 100px;
   @media screen and (max-width: ${Size.laptop}) {
     padding: 0 4%;
   }
@@ -157,17 +156,20 @@ export const AboutTeams = styled.div`
     }
   }
 `;
-export const Coefficient = styled.div`
-  display: flex;
+
+export const ModalWindow = styled.div`
+  display: none;
   align-items: center;
-  justify-content: space-between;
-  width: 10%;
-  @media screen and (max-width: ${Size.laptop}) {
-    gap: 16px;
-    justify-content: center;
-    width: auto;
+  justify-content: center;
+  width: 100%;
+  height: 100px;
+  background: ${Colors.PINK};
+  border-radius: 10px;
+  p {
+    color: ${Colors.WHITE};
+    font-size: 20px;
+  }
+  &.active {
+    display: flex;
   }
 `;
-export const HomeWin = styled.p``;
-export const Draw = styled.p``;
-export const GuestWin = styled.p``;

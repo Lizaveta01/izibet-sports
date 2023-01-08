@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { HandySvg } from 'handy-svg';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -42,7 +43,7 @@ const MatchPage = () => {
   return (
     <Wrapper>
       <Title>
-        <h1>Will make a bet on match!</h1>
+        <h1>Will make a bet on the match!</h1>
       </Title>
       {isLoading ? (
         <Spinner />
@@ -64,6 +65,7 @@ const MatchPage = () => {
               </TeamSecond>
             </AboutTeams>
           </Match>
+
           <Form match={match} />
         </React.Fragment>
       )}
