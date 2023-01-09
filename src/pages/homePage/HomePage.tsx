@@ -49,7 +49,7 @@ const HomePage = () => {
     setTimeout(() => {
       setIsOpenModalWindow(false);
       setBet(null);
-    }, 4000);
+    }, 1000);
   };
 
   return (
