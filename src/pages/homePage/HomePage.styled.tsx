@@ -2,6 +2,9 @@ import styled from 'styled-components';
 
 import { Colors, Size } from '../../styles/constansts';
 
+const { PINK, WHITE, GRAY, BLACK } = Colors;
+const { laptop, tablet } = Size;
+
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
@@ -9,36 +12,39 @@ export const Wrapper = styled.div`
   flex-direction: column;
   gap: 20px;
 `;
+
 export const Title = styled.h1`
   margin-top: 40px;
   font-size: 40px;
 `;
+
 export const Match = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-color: ${Colors.GRAY};
+  background-color: ${GRAY};
   height: 60px;
   border-radius: 8px;
   width: 100%;
   padding: 0px 40px;
   cursor: pointer;
-  color: ${Colors.WHITE};
-  border: 2px solid ${Colors.GRAY};
+  color: ${WHITE};
+  border: 2px solid ${GRAY};
   transition: all 0.5s ease-in-out;
   &:hover {
     transform: scale(1.02);
-    border: 2px solid ${Colors.PINK};
+    border: 2px solid ${PINK};
   }
-  @media screen and (max-width: ${Size.laptop}) {
+  @media screen and (max-width: ${laptop}) {
     gap: 16px;
     padding: 0px 16px;
   }
-  @media screen and (max-width: ${Size.tablet}) {
+  @media screen and (max-width: ${tablet}) {
     border: none;
     border-radius: 0px;
   }
 `;
+
 export const MatchingList = styled.div`
   display: flex;
   align-items: center;
@@ -48,13 +54,13 @@ export const MatchingList = styled.div`
   width: 100%;
   margin-bottom: 40px;
   gap: 20px;
-  @media screen and (max-width: ${Size.laptop}) {
+  @media screen and (max-width: ${laptop}) {
     padding: 0 4%;
   }
-  @media screen and (max-width: ${Size.tablet}) {
+  @media screen and (max-width: ${tablet}) {
     flex-direction: column;
     a${Match}:nth-child(2n + 1) {
-      background-color: ${Colors.BLACK};
+      background-color: ${BLACK};
     }
     padding: 0;
     svg {
@@ -66,19 +72,21 @@ export const MatchingList = styled.div`
     }
   }
 `;
+
 export const AboutMatch = styled.div`
   display: flex;
   align-items: center;
   gap: 80%;
   width: 10%;
-  @media screen and (max-width: ${Size.laptop}) {
+  @media screen and (max-width: ${laptop}) {
     gap: 60%;
   }
-  @media screen and (max-width: ${Size.tablet}) {
+  @media screen and (max-width: ${tablet}) {
     gap: 10px;
     flex-direction: column;
   }
 `;
+
 export const TimeItem = styled.p``;
 export const DateItem = styled.p``;
 
@@ -86,7 +94,7 @@ const Team = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  @media screen and (max-width: ${Size.tablet}) {
+  @media screen and (max-width: ${tablet}) {
     p {
       font-size: 14px;
     }
@@ -105,6 +113,7 @@ const Team = styled.div`
     }
   }
 `;
+
 export const TeamFirst = styled(Team)`
   justify-content: flex-end;
   p {
@@ -114,22 +123,25 @@ export const TeamFirst = styled(Team)`
     margin-left: 30px;
   }
 `;
+
 export const TeamSecond = styled(Team)`
   flex-direction: row-reverse;
   svg {
     margin-right: 30px;
   }
 `;
+
 export const Name = styled.p`
   width: 120px;
 `;
+
 export const Score = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 4px;
   padding: 6px 12px;
-  background-color: ${Colors.BLACK};
+  background-color: ${BLACK};
   margin: 0 20px;
   p {
     font-size: 20px;
@@ -138,7 +150,7 @@ export const Score = styled.div`
     text-align: center;
     padding-left: 12px;
   }
-  @media screen and (max-width: ${Size.tablet}) {
+  @media screen and (max-width: ${tablet}) {
     p {
       font-size: 16px;
     }
@@ -146,14 +158,15 @@ export const Score = styled.div`
     margin: 0 10px;
   }
 `;
+
 export const AboutTeams = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  @media screen and (max-width: ${Size.laptop}) {
+  @media screen and (max-width: ${laptop}) {
     justify-content: center;
   }
-  @media screen and (max-width: ${Size.tablet}) {
+  @media screen and (max-width: ${tablet}) {
     div${Score} {
       background-color: inherit;
     }
@@ -166,13 +179,17 @@ export const ModalWindow = styled.div`
   justify-content: center;
   width: 100%;
   height: 100px;
-  background: ${Colors.PINK};
+  background: ${PINK};
   border-radius: 10px;
   p {
-    color: ${Colors.WHITE};
+    color: ${WHITE};
     font-size: 20px;
   }
   &.active {
     display: flex;
+  }
+  span {
+    text-decoration: underline;
+    font-weight: 600;
   }
 `;

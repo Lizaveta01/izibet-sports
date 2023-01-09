@@ -58,8 +58,11 @@ const HomePage = () => {
       {bet && (
         <ModalWindow className={isOpenModalWindow ? Word.ACTIVE : ''}>
           <p>
-            Thank you! Your bet in the match {bet.home}: {bet.guest} on {bet.win} with coefficient{' '}
-            {bet.coefficient} accepted
+            Thank you! Your bet in the match{' '}
+            <span>
+              {bet.home} : {bet.guest}{' '}
+            </span>{' '}
+            on <span>{bet.win}</span> with coefficient <span>{bet.coefficient} </span> accepted
           </p>
         </ModalWindow>
       )}
