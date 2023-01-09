@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Colors, Size } from '../../styles/constansts';
 
 const { PINK, WHITE, GRAY, BLACK } = Colors;
-const { laptop, tablet } = Size;
+const { laptop, tablet, betweenTabletMobile } = Size;
 
 export const Wrapper = styled.div`
   display: flex;
@@ -103,7 +103,7 @@ const Team = styled.div`
       height: 26px;
     }
   }
-  @media screen and (max-width: 580px) {
+  @media screen and (max-width: ${betweenTabletMobile}) {
     p {
       display: none;
     }
@@ -180,7 +180,7 @@ export const ModalWindow = styled.div`
   width: 100%;
   height: 100px;
   background: ${PINK};
-  border-radius: 10px;
+  line-height: 1.2;
   p {
     color: ${WHITE};
     font-size: 20px;

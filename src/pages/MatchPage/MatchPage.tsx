@@ -1,11 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { HandySvg } from 'handy-svg';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { HandySvg } from 'handy-svg';
+
 import Form from '../../components/form/form';
-import Spinner from '../../components/spinner/Spinner';
 import { currentAPI } from '../../data/mockData';
 import { IMatch } from '../../models/models';
+
+import Spinner from '../../components/spinner/Spinner';
 import {
   AboutMatch,
   AboutTeams,

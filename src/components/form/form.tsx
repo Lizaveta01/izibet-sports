@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import { useMyContext } from '../../context/context';
 import { IBetData, IMatch } from '../../models/models';
+
 import {
   ButtonSubmit,
   ChooseCoefficient,
@@ -60,13 +62,7 @@ const Form = ({ match }: Props) => {
           const { team } = item;
           return (
             <RadioButton key={index}>
-              <Input
-                id={item.id}
-                type="radio"
-                name="radio"
-                value="3"
-                onClick={() => hadlerOption(item)}
-              />
+              <Input id={item.id} type="radio" name="radio" onClick={() => hadlerOption(item)} />
               <Paragraph>
                 {team.title} : {team.coefficient}
               </Paragraph>

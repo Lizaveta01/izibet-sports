@@ -6,6 +6,7 @@ import { HandySvg } from 'handy-svg';
 import { currentAPI } from '../../data/mockData';
 import { IMatch } from '../../models/models';
 import { useMyContext } from '../../context/context';
+import { Word } from '../../models/constants';
 
 import {
   DateItem,
@@ -23,7 +24,6 @@ import {
   Title,
 } from './HomePage.styled';
 import Spinner from '../../components/spinner/Spinner';
-import { Word } from '../../models/constants';
 
 const HomePage = () => {
   const [matches, setMatches] = useState<IMatch[]>();
