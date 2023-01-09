@@ -7,8 +7,12 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  gap: 20px;
 `;
-
+export const Title = styled.h1`
+  margin-top: 40px;
+  font-size: 40px;
+`;
 export const Match = styled.div`
   display: flex;
   align-items: center;
@@ -42,15 +46,14 @@ export const MatchingList = styled.div`
   flex-direction: column;
   padding: 0 8%;
   width: 100%;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   gap: 20px;
-  margin-top: 100px;
   @media screen and (max-width: ${Size.laptop}) {
     padding: 0 4%;
   }
   @media screen and (max-width: ${Size.tablet}) {
     flex-direction: column;
-    div${Match}:nth-child(2n + 1) {
+    a${Match}:nth-child(2n + 1) {
       background-color: ${Colors.BLACK};
     }
     padding: 0;

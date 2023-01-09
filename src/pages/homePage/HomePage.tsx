@@ -20,6 +20,7 @@ import {
   AboutTeams,
   AboutMatch,
   ModalWindow,
+  Title,
 } from './HomePage.styled';
 import Spinner from '../../components/spinner/Spinner';
 import { Word } from '../../models/constants';
@@ -53,6 +54,7 @@ const HomePage = () => {
 
   return (
     <Wrapper>
+      <Title>IZIBET SPORTS</Title>
       {bet && (
         <ModalWindow className={isOpenModalWindow ? Word.ACTIVE : ''}>
           <p>

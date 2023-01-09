@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
-import { Colors } from '../../styles/constansts';
+import { Colors, Size } from '../../styles/constansts';
 
 export const FormWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
   gap: 40px;
   color: ${Colors.BLACK};
   background-color: ${Colors.WHITE};
@@ -16,10 +17,19 @@ export const FormWrapper = styled.div`
   &:hover {
     background-color: ${Colors.WHITE};
   }
+  @media screen and (max-width: ${Size.tablet}) {
+    padding: 4%;
+  }
 `;
 export const ChooseCoefficient = styled.div`
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   gap: 20px;
+  @media screen and (max-width: ${Size.mobileL}) {
+    flex-direction: column;
+  }
 `;
 export const RadioButton = styled.label`
   display: inline-block;

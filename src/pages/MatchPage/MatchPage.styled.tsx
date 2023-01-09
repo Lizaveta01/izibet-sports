@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Colors } from '../../styles/constansts';
+import { Colors, Size } from '../../styles/constansts';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -20,6 +20,12 @@ export const Title = styled.div`
     font-size: 50px;
     font-weight: bold;
   }
+  @media screen and (max-width: ${Size.tablet}) {
+    height: 100px;
+    h1 {
+      font-size: 30px;
+    }
+  }
 `;
 export const Match = styled.div`
   display: flex;
@@ -29,8 +35,16 @@ export const Match = styled.div`
   gap: 40px;
   border: 2px solid ${Colors.PINK};
   border-radius: 8px;
-  padding: 40px 40px;
+  padding: 40px;
   margin: auto 0;
+  @media screen and (max-width: ${Size.tablet}) {
+    padding: 4%;
+    gap: 4%;
+    width: 80%;
+  }
+  @media screen and (max-width: ${Size.mobileL}) {
+    width: 96%;
+  }
 `;
 
 export const AboutMatch = styled.div`
@@ -60,6 +74,14 @@ const Team = styled.div`
     width: 100px;
     height: 100px;
   }
+  @media screen and (max-width: ${Size.tablet}) {
+    gap: 5px;
+    svg {
+      min-width: 80px;
+      min-height: 80px;
+      width: 60%;
+    }
+  }
 `;
 export const TeamFirst = styled(Team)`
   justify-content: flex-end;
@@ -75,6 +97,9 @@ export const AboutTeams = styled.div`
   align-items: center;
   justify-content: center;
   gap: 60px;
+  @media screen and (max-width: ${Size.tablet}) {
+    gap: 4%;
+  }
 `;
 
 export const ButtonBack = styled.button`
